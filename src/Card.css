@@ -1,0 +1,46 @@
+body {
+    background-color: #0000009a;
+
+}
+
+.main-container {
+    backdrop-filter: blur(10px);
+    background-color: #003cff45;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-container {
+    perspective: 1000px;
+    display: inline-block;
+}
+
+.card-container.rotate .card-dim {
+    transform: rotateY(180deg);
+    transition: transform 1s;
+
+}
+
+.card-container.unrotate .card-dim {
+    transform: rotateY('0deg');
+    transition: transform 1s;
+
+}
+
+.card-dim {
+    height: 150px;
+    width: 100px;
+    background-color: #aaccfde1;
+    border: 1px solid red;
+    color: #013cff;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    transform-style: preserve-3d;
+    cursor: pointer;
+
+}
+
+.card-dim span {
+    position: absolute;
+    left: 25%;
+    top: 30%;
+    backface-visibility: hidden;
+}
