@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import './Bootstrap.css';
 import './Card.css';
+import Levels from './Levels';
 
-function Card({ text, index, cardIndexs, setCardIndexs, cardData, setCardData }) {
+function Card({ text, index, cardIndexs, setCardIndexs, cardData, setCardData, score, setScore }) {
   const handleCard = () => {
-    setCardIndexs([...cardIndexs, index]);
-
     if (!cardIndexs.includes(index)) {
+      setCardIndexs([...cardIndexs, index]);
+
+      let newscore = score 
+
       const newCardData = [...cardData, text];
       let newCardIndexs = [...cardIndexs];
       setCardData(newCardData);
@@ -16,8 +19,9 @@ function Card({ text, index, cardIndexs, setCardIndexs, cardData, setCardData })
       }
       else if (cardData.length > 0) {
 
-        if (cardData[cardData.length - 1] == text) {
+        if (eval(cardData[cardData.length - 1]) == eval(text)) {
           newCardIndexs = [...cardIndexs, index];
+          newscore = score + 1;
         }
         else {
           newCardIndexs = [...cardIndexs];
@@ -30,6 +34,7 @@ function Card({ text, index, cardIndexs, setCardIndexs, cardData, setCardData })
         setCardIndexs(newCardIndexs)
       }, 1000);
 
+      setScore(newscore);
 
     }
   };
@@ -37,11 +42,9 @@ function Card({ text, index, cardIndexs, setCardIndexs, cardData, setCardData })
 
 
   return (
-    <div className='col-2'>
-      <div className={`card-container ${cardIndexs.includes(index) ? 'unrotate' : 'rotate'}`}>
-        <div className='card-dim rounded text-center' onClick={handleCard}>
-          <span>{text}</span>
-        </div>
+    <div className={`card-container ${cardIndexs.includes(index) ? 'unrotate' : 'rotate'}`}>
+      <div className='card-dim rounded text-center' onClick={handleCard}>
+        <span>{text}</span>
       </div>
     </div>
 
@@ -50,27 +53,60 @@ function Card({ text, index, cardIndexs, setCardIndexs, cardData, setCardData })
 
 
 function App() {
-  const fruits = ['apple', 'mango', 'banana', 'grapes', 'orange'];
-  const kingArr = fruits.concat(fruits);
+  const levelsData = [
+    [1,2,3],
+    [1,2,3,4],
+    [1,2,3,4,5],
+    [1,2,3,4,5,6]
+]; 
+
+  const listOne = ['2+2', '1+2', '2+7'];
+  const listTwo = ['1+3', '2+1', '5+4'];
+  let kingArr = []
 
   const [cardIndexs, setCardIndexs] = useState([]);
   const [cardData, setCardData] = useState([]);
+  const [score, setScore] = useState(0);
+  const [currentLevel, setCurrentLevel] = useState(0);
+  if (currentLevel === 3) {
+    kingArr = listOne.concat(listTwo);
+  } else {
+    kingArr = levelsData[currentLevel].concat(levelsData[currentLevel]);
+  }
+
+  useEffect( () => {
+    setCardIndexs([]);
+    setScore(0);
+    setCardData([]);
+  }, [currentLevel]
+  )
 
 
   useEffect(() => {
-    if (cardIndexs.length === kingArr.length) {
+    const kingArr = levelsData[currentLevel].concat(levelsData[currentLevel]);
+    if (score === kingArr.length / 2) {
       alert('Congratulations');
       setCardIndexs([]);
+      setScore(0);
       setCardData([]);
     }
-  }, [cardIndexs, kingArr.length]);
+  }, [score]);
 
 
 
   return (
     <div className="container">
       <h1 className='text-white text-center'>Match The Cards</h1>
+      <div className=' px-3 d-flex justify-content-between'>
+        <span className='fs-3 text-primary'>Level : {currentLevel+1}</span>
+        <span className='fs-3 text-primary'>Score : {score}</span>
+        </div>
+      {/* <div className='text-start px-3'></div> */}
+      <Levels setCurrentLevel = {setCurrentLevel} />
       <div className="main-container d-flex justify-content-center flex-wrap gap-3 rounded p-5">
+      
+
+        {/* <span>{levelsData[currentLevel]}</span> */}
         {kingArr.map((item, index) => (
           <Card
             key={index}
@@ -80,6 +116,8 @@ function App() {
             setCardIndexs={setCardIndexs}
             cardData={cardData}
             setCardData={setCardData}
+            score = {score}
+            setScore = {setScore}
           />
         ))}
       </div>
