@@ -39,8 +39,7 @@ body {
 }
 
 .card-dim span {
-    position: absolute;
-    left: 25%;
-    top: 30%;
+    position: relative;
+    top: 38%;
     backface-visibility: hidden;
 }
