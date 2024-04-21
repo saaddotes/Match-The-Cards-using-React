@@ -53,14 +53,23 @@ function Card({ text, index, cardIndexs, setCardIndexs, cardData, setCardData, s
 
 
 function App() {
-  
-  const listOne = ['2+2', '1+2', '2+7','2+5'];
-  const listTwo = ['1+3', '2+1', '6+1' , '5+4'];
+  const listOne = ['2+2', '1+2', '2+7'];
+  const listTwo = ['1+3', '2+1', '5+4'];
   const kingArr = listOne.concat(listTwo);
 
   const [cardIndexs, setCardIndexs] = useState([]);
   const [cardData, setCardData] = useState([]);
   const [score, setScore] = useState(0);
+
+
+  useEffect(() => {
+    if (cardIndexs.length > kingArr.length) {
+      // alert('Congratulations');
+      setCardIndexs([]);
+      setCardData([]);
+    }
+  }, [cardIndexs, kingArr.length]);
+
 
 
   return (
