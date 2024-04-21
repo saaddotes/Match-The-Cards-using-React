@@ -121,7 +121,7 @@ function App() {
         ))}
       </div>
       <div className='text-end'>
-        <button className={`btn btn-warning  ${score == kingArr.length / 2 ? '' : 'disabled'}`} onClick={() => { setCurrentLevel(currentLevel + 1) }}>Next</button>
+        <button className={`btn btn-warning  ${score == kingArr.length / 2 ? '' : 'disabled'}`} onClick={() => { if(currentLevel<3) {setCurrentLevel(currentLevel + 1)}  }}>Next</button>
       </div>
 
     </div>
