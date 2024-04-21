@@ -8,7 +8,7 @@ function Card({ text, index, cardIndexs, setCardIndexs, cardData, setCardData, s
     if (!cardIndexs.includes(index)) {
       setCardIndexs([...cardIndexs, index]);
 
-      let newscore = score 
+      let newscore = score
 
       const newCardData = [...cardData, text];
       let newCardIndexs = [...cardIndexs];
@@ -54,14 +54,14 @@ function Card({ text, index, cardIndexs, setCardIndexs, cardData, setCardData, s
 
 function App() {
   const levelsData = [
-    [1,2,3],
-    [1,2,3,4],
-    [1,2,3,4,5],
-    [1,2,3,4,5,6]
-]; 
+    [1, 2, 3],
+    [1, 2, 3, 4],
+    [1, 2, 3, 4, 5],
+    [1, 2, 3, 4, 5, 6]
+  ];
 
-  const listOne = ['2+2', '1+2', '2+7'];
-  const listTwo = ['1+3', '2+1', '5+4'];
+  const listOne = ['2+2', '1+2', '2+7', '6+4'];
+  const listTwo = ['1+3', '2+1', '5+4', '3+7'];
   let kingArr = []
 
   const [cardIndexs, setCardIndexs] = useState([]);
@@ -74,7 +74,7 @@ function App() {
     kingArr = levelsData[currentLevel].concat(levelsData[currentLevel]);
   }
 
-  useEffect( () => {
+  useEffect(() => {
     setCardIndexs([]);
     setScore(0);
     setCardData([]);
@@ -82,15 +82,15 @@ function App() {
   )
 
 
-  useEffect(() => {
-    const kingArr = levelsData[currentLevel].concat(levelsData[currentLevel]);
-    if (score === kingArr.length / 2) {
-      alert('Congratulations');
-      setCardIndexs([]);
-      setScore(0);
-      setCardData([]);
-    }
-  }, [score]);
+  // useEffect(() => {
+  //   // const kingArr = levelsData[currentLevel].concat(levelsData[currentLevel]);
+  //   if (score === kingArr.length / 2) {
+  //     alert('Congratulations');
+  //     setCardIndexs([]);
+  //     setScore(0);
+  //     setCardData([]);
+  //   }
+  // }, [score]);
 
 
 
@@ -98,13 +98,12 @@ function App() {
     <div className="container">
       <h1 className='text-white text-center'>Match The Cards</h1>
       <div className=' px-3 d-flex justify-content-between'>
-        <span className='fs-3 text-primary'>Level : {currentLevel+1}</span>
+        <span className='fs-3 text-primary'>Level : {currentLevel + 1}</span>
         <span className='fs-3 text-primary'>Score : {score}</span>
-        </div>
+      </div>
       {/* <div className='text-start px-3'></div> */}
-      <Levels setCurrentLevel = {setCurrentLevel} />
+      <Levels setCurrentLevel={setCurrentLevel} currentLevel={currentLevel} />
       <div className="main-container d-flex justify-content-center flex-wrap gap-3 rounded p-5">
-      
 
         {/* <span>{levelsData[currentLevel]}</span> */}
         {kingArr.map((item, index) => (
@@ -116,11 +115,15 @@ function App() {
             setCardIndexs={setCardIndexs}
             cardData={cardData}
             setCardData={setCardData}
-            score = {score}
-            setScore = {setScore}
+            score={score}
+            setScore={setScore}
           />
         ))}
       </div>
+      <div className='text-end'>
+        <button className={`btn btn-warning  ${score == kingArr.length / 2 ? '' : 'disabled'}`} onClick={() => { setCurrentLevel(currentLevel + 1) }}>Next</button>
+      </div>
+
     </div>
   );
 }

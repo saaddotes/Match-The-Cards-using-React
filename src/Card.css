@@ -20,6 +20,10 @@ body {
 
 }
 
+.bg-cont {
+    background-color:#0735cd45  ;
+}
+
 .card-container.unrotate .card-dim {
     transform: rotateY('0deg');
     transition: transform 1s;
