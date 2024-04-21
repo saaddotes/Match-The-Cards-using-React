@@ -7,7 +7,7 @@ function Card({ text , isSelected, handleClick}) {
     return (
         <div className={`card-container ${isSelected ? 'unrotate' : 'rotate'}`}>
             <div className='card-dim rounded text-center' onClick={handleClick}>
-                <span>{text}</span>
+                <span className='bg-dark'>{text}</span>
             </div>
         </div>
 

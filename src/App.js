@@ -19,7 +19,7 @@ function Card({ text, index, cardIndexs, setCardIndexs, cardData, setCardData, s
       }
       else if (cardData.length > 0) {
 
-        if (eval(cardData[cardData.length - 1]) == eval(text)) {
+        if (cardData[cardData.length - 1] == text) {
           newCardIndexs = [...cardIndexs, index];
           newscore = score + 1;
         }
@@ -44,7 +44,7 @@ function Card({ text, index, cardIndexs, setCardIndexs, cardData, setCardData, s
   return (
     <div className={`card-container ${cardIndexs.includes(index) ? 'unrotate' : 'rotate'}`}>
       <div className='card-dim rounded text-center' onClick={handleCard}>
-        <span>{text}</span>
+        <span className='fs-5'>{text}</span>
       </div>
     </div>
 
@@ -54,14 +54,13 @@ function Card({ text, index, cardIndexs, setCardIndexs, cardData, setCardData, s
 
 function App() {
   const levelsData = [
-    [1, 2, 3],
-    [1, 2, 3, 4],
-    [1, 2, 3, 4, 5],
-    [1, 2, 3, 4, 5, 6]
+    ['Apple', 'Banana', 'Orange'],
+    ['Afganistan', 'Iran', 'China', 'Pakistan'],
+    ['Android', 'ChromeOS', 'macOS', 'Linux', 'Windows'],
   ];
 
-  const listOne = ['2+2', '1+2', '2+7', '6+4'];
-  const listTwo = ['1+3', '2+1', '5+4', '3+7'];
+  const listOne = ['1rStu', 'rS3wi', 'tw2Ui', 'uiTs3'];
+  const listTwo = ['rS3wi', '1rStu', 'uiTs3', 'tw2Ui'];
   let kingArr = []
 
   const [cardIndexs, setCardIndexs] = useState([]);
@@ -103,7 +102,8 @@ function App() {
       </div>
       {/* <div className='text-start px-3'></div> */}
       <Levels setCurrentLevel={setCurrentLevel} currentLevel={currentLevel} />
-      <div className="main-container d-flex justify-content-center flex-wrap gap-3 rounded p-5">
+      <div className='main-container'>
+      <div className=" d-flex justify-content-center flex-wrap gap-3 rounded p-5">
 
         {/* <span>{levelsData[currentLevel]}</span> */}
         {kingArr.map((item, index) => (
@@ -122,6 +122,7 @@ function App() {
       </div>
       <div className='text-end'>
         <button className={`btn btn-warning  ${score == kingArr.length / 2 ? '' : 'disabled'}`} onClick={() => { if(currentLevel<3) {setCurrentLevel(currentLevel + 1)}  }}>Next</button>
+      </div>
       </div>
 
     </div>
