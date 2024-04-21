@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Match-The-Cards-using-React/static/css/main.a0e579ec.css",
-    "main.js": "/Match-The-Cards-using-React/static/js/main.c939f17c.js",
+    "main.css": "/Match-The-Cards-using-React/static/css/main.297fc20b.css",
+    "main.js": "/Match-The-Cards-using-React/static/js/main.bdf210bd.js",
     "index.html": "/Match-The-Cards-using-React/index.html",
-    "main.a0e579ec.css.map": "/Match-The-Cards-using-React/static/css/main.a0e579ec.css.map",
-    "main.c939f17c.js.map": "/Match-The-Cards-using-React/static/js/main.c939f17c.js.map"
+    "main.297fc20b.css.map": "/Match-The-Cards-using-React/static/css/main.297fc20b.css.map",
+    "main.bdf210bd.js.map": "/Match-The-Cards-using-React/static/js/main.bdf210bd.js.map"
   },
   "entrypoints": [
-    "static/css/main.a0e579ec.css",
-    "static/js/main.c939f17c.js"
+    "static/css/main.297fc20b.css",
+    "static/js/main.bdf210bd.js"
   ]
 }
