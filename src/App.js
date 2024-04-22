@@ -2,54 +2,55 @@ import React, { useState, useEffect } from 'react';
 import './Bootstrap.css';
 import './Card.css';
 import Levels from './Levels';
+import Card from './Card'
 
-function Card({ text, index, cardIndexs, setCardIndexs, cardData, setCardData, score, setScore }) {
-  const handleCard = () => {
-    if (!cardIndexs.includes(index)) {
-      setCardIndexs([...cardIndexs, index]);
+// function Card({ text, index, cardIndexs, setCardIndexs, cardData, setCardData, score, setScore }) {
+//   const handleCard = () => {
+//     if (!cardIndexs.includes(index)) {
+//       setCardIndexs([...cardIndexs, index]);
 
-      let newscore = score
+//       let newscore = score
 
-      const newCardData = [...cardData, text];
-      let newCardIndexs = [...cardIndexs];
-      setCardData(newCardData);
-      if (cardData.length === 0) {
-        newCardIndexs = [...cardIndexs, index];
+//       const newCardData = [...cardData, text];
+//       let newCardIndexs = [...cardIndexs];
+//       setCardData(newCardData);
+//       if (cardData.length === 0) {
+//         newCardIndexs = [...cardIndexs, index];
 
-      }
-      else if (cardData.length > 0) {
+//       }
+//       else if (cardData.length > 0) {
 
-        if (cardData[cardData.length - 1] == text) {
-          newCardIndexs = [...cardIndexs, index];
-          newscore = score + 1;
-        }
-        else {
-          newCardIndexs = [...cardIndexs];
-          newCardIndexs.pop();
-        }
-        setCardData([])
-      }
+//         if (cardData[cardData.length - 1] === text) {
+//           newCardIndexs = [...cardIndexs, index];
+//           newscore = score + 1;
+//         }
+//         else {
+//           newCardIndexs = [...cardIndexs];
+//           newCardIndexs.pop();
+//         }
+//         setCardData([])
+//       }
 
-      setTimeout(() => {
-        setCardIndexs(newCardIndexs)
-      }, 1000);
+//       setTimeout(() => {
+//         setCardIndexs(newCardIndexs)
+//       }, 1000);
 
-      setScore(newscore);
+//       setScore(newscore);
 
-    }
-  };
+//     }
+//   };
 
 
 
-  return (
-    <div className={`card-container ${cardIndexs.includes(index) ? 'unrotate' : 'rotate'}`}>
-      <div className='card-dim rounded text-center' onClick={handleCard}>
-        <span className='fs-5'>{text}</span>
-      </div>
-    </div>
+//   return (
+//     <div className={`card-container ${cardIndexs.includes(index) ? 'unrotate' : 'rotate'}`}>
+//       <div className='card-dim rounded text-center' onClick={handleCard}>
+//         <span className='fs-5'>{text}</span>
+//       </div>
+//     </div>
 
-  );
-}
+//   );
+// }
 
 
 function App() {
@@ -103,7 +104,7 @@ function App() {
       {/* <div className='text-start px-3'></div> */}
       <Levels setCurrentLevel={setCurrentLevel} currentLevel={currentLevel} />
       <div className='main-container'>
-      <div className=" d-flex justify-content-center flex-wrap gap-3 rounded p-5">
+      <div className=" d-flex justify-content-center flex-wrap gap-3 rounded py-3">
 
         {/* <span>{levelsData[currentLevel]}</span> */}
         {kingArr.map((item, index) => (
@@ -121,7 +122,7 @@ function App() {
         ))}
       </div>
       <div className='text-end'>
-        <button className={`btn btn-warning  ${score == kingArr.length / 2 ? '' : 'disabled'}`} onClick={() => { if(currentLevel<3) {setCurrentLevel(currentLevel + 1)}  }}>Next</button>
+        <button className={`btn btn-warning  ${score === kingArr.length / 2 ? '' : 'disabled'}`} onClick={() => { if(currentLevel<3) {setCurrentLevel(currentLevel + 1)}  }}>Next</button>
       </div>
       </div>
 
