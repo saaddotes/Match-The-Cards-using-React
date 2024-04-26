@@ -1,13 +1,24 @@
 {
   "files": {
-    "main.css": "/Match-The-Cards-using-React/static/css/main.595b9e69.css",
-    "main.js": "/Match-The-Cards-using-React/static/js/main.7f7ecab3.js",
+    "main.css": "/Match-The-Cards-using-React/static/css/main.308e3c78.css",
+    "main.js": "/Match-The-Cards-using-React/static/js/main.f603a358.js",
+    "static/media/apple.jpg": "/Match-The-Cards-using-React/static/media/apple.c790d83af73058870c42.jpg",
+    "static/media/pineapple.jpg": "/Match-The-Cards-using-React/static/media/pineapple.4ab29152d9e3228861a3.jpg",
+    "static/media/blueCar.jpg": "/Match-The-Cards-using-React/static/media/blueCar.c15c373fc2f70b44dd27.jpg",
+    "static/media/yellowCar.jpg": "/Match-The-Cards-using-React/static/media/yellowCar.1508b2df96b9f725f2f6.jpg",
+    "static/media/game-bonus.mp3": "/Match-The-Cards-using-React/static/media/game-bonus.93f2df79eaa65bf79dcd.mp3",
+    "static/media/cardBackground.jpg": "/Match-The-Cards-using-React/static/media/cardBackground.5febe736731330130098.jpg",
+    "static/media/negative_beeps.mp3": "/Match-The-Cards-using-React/static/media/negative_beeps.6b2eb1aa1ffcec110107.mp3",
+    "static/media/redCar.jpg": "/Match-The-Cards-using-React/static/media/redCar.e9c2b5beaf7735d157dd.jpg",
+    "static/media/img1.jpeg": "/Match-The-Cards-using-React/static/media/img1.8b5e0f4ddf4e43e53cbc.jpeg",
+    "static/media/img4.jpeg": "/Match-The-Cards-using-React/static/media/img4.8ce0f861bee757699956.jpeg",
+    "static/media/clickSound.mp3": "/Match-The-Cards-using-React/static/media/clickSound.616f1cec9d0ab6a769db.mp3",
     "index.html": "/Match-The-Cards-using-React/index.html",
-    "main.595b9e69.css.map": "/Match-The-Cards-using-React/static/css/main.595b9e69.css.map",
-    "main.7f7ecab3.js.map": "/Match-The-Cards-using-React/static/js/main.7f7ecab3.js.map"
+    "main.308e3c78.css.map": "/Match-The-Cards-using-React/static/css/main.308e3c78.css.map",
+    "main.f603a358.js.map": "/Match-The-Cards-using-React/static/js/main.f603a358.js.map"
   },
   "entrypoints": [
-    "static/css/main.595b9e69.css",
-    "static/js/main.7f7ecab3.js"
+    "static/css/main.308e3c78.css",
+    "static/js/main.f603a358.js"
   ]
 }
