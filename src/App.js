@@ -15,17 +15,16 @@ function App() {
 
 
   const [cardIndexs, setCardIndexs] = useState([]);
-  const [cardData, setCardData] = useState([]);
+  const [cardData, setCardData] = useState('');
   const [score, setScore] = useState(0);
   const [currentLevel, setCurrentLevel] = useState(0);
   let kingArr = levelsData[currentLevel].concat(levelsData[currentLevel]);
-
-
+  let unlockedLevles = [0];
 
   useEffect(() => {
     setCardIndexs([]);
     setScore(0);
-    setCardData([]);
+    setCardData('');
   }, [currentLevel]
   )
 
@@ -35,7 +34,7 @@ function App() {
       <h1 className='text-white text-center'>Match The Cards</h1>
 
       {/* <div className='text-start px-3'></div> */}
-      <Levels setCurrentLevel={setCurrentLevel} currentLevel={currentLevel} />
+      <Levels setCurrentLevel={setCurrentLevel} currentLevel={currentLevel} unlockedLevles={unlockedLevles} />
       <div className=' px-3 d-flex justify-content-between'>
         <span className='fs-3 text-white fw-bold'>Level : {currentLevel + 1}</span>
         <span className='fs-3 text-white fw-bold'>Score : {score}</span>

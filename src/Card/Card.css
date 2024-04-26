@@ -20,12 +20,12 @@ body {
     transform-style: preserve-3d;
     transition: all 1s;
     border-radius: 15px !important;
+    cursor: pointer;
     /* border: 2px solid black; */
 }
 
 .rotate {
     transform: rotateY(180deg);
-
 }
 
 
