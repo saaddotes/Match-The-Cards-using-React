@@ -1,9 +1,22 @@
+
+
 body {
   background-color: #0000009a;
   background-image: url('https://i.pinimg.com/originals/81/26/7d/81267dec1d4578c4a954894cf7609415.gif');
   background-repeat: no-repeat;
   background-size: cover;
+  font-family: QuicksandRegular;
+}
 
+
+@font-face {
+  font-family: QuicksandRegular;
+  src: url(../fonts/Quicksand-Regular.ttf);
+}
+
+@font-face {
+  font-family: QuicksandBold;
+  src: url(../fonts/Quicksand-Bold.ttf);
 }
 
 .main-container {
