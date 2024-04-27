@@ -10,7 +10,7 @@ body {
     backdrop-filter: blur(10px);
     background-color: #f5f7ff45;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 25px !important;
+    border-radius: 10px !important;
 }
 
 
@@ -61,21 +61,10 @@ body {
 
 
 .button {
-    background-color: #004A7F;
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-    border: none;
     color: #FFFFFF;
-    cursor: pointer;
-    display: inline-block;
-    font-family: Arial;
-    font-size: 20px;
-    padding: 5px 10px;
-    text-align: center;
-    text-decoration: none;
-    -webkit-animation: glowing 1500ms infinite;
+    /* -webkit-animation: glowing 1500ms infinite;
     -moz-animation: glowing 1500ms infinite;
-    -o-animation: glowing 1500ms infinite;
+    -o-animation: glowing 1500ms infinite; */
     animation: glowing 1500ms infinite;
   }
   @-webkit-keyframes glowing {

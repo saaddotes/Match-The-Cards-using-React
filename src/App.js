@@ -55,7 +55,7 @@ function App() {
   return (
     <div className="container">
 
-      <div className=' main-container px-3 mt-2'>
+      <div className=' main-container py-1 px-2 mt-2'>
         <div className='row align-items-center'>
           <div className='col-lg-4'>
             <button className='bg-warning btn button' onClick={requestFullScreen}>
@@ -70,29 +70,31 @@ function App() {
           </div>
 
         </div>
-
-
       </div>
 
-      <Levels setCurrentLevel={setCurrentLevel} currentLevel={currentLevel} unlockedLevles={unlockedLevles} />
-      <div className=' px-3 d-flex justify-content-between'>
-        <span className='fs-3 text-white fw-bold'>Level : {currentLevel + 1}</span>
-        <button className={`btn btn-warning  ${score === kingArr.length / 2 ? '' : 'disabled'}`}
-          onClick={() => {
-            if (currentLevel < 3) {
-              setCurrentLevel(currentLevel + 1)
-              setUnlockedLevels([...unlockedLevles, currentLevel])
-            } else {
-              restart()
-            }
-          }}>{btn_text}</button>
+      <div>
+        <div className='row align-items-end'>
+          <div className='col-4'>
+            <span className='fs-3 text-white fw-bold'>Level : {currentLevel + 1}</span>
+          </div>
+          <div className='col-4'>
+            <Levels setCurrentLevel={setCurrentLevel} currentLevel={currentLevel} unlockedLevles={unlockedLevles} />
+          </div>
+          <div className='col-4 text-end'>
+            <button className={`btn btn-warning  ${score === kingArr.length / 2 ? '' : 'disabled'}`}
+              onClick={() => {
+                if (currentLevel < 3) {
+                  setCurrentLevel(currentLevel + 1)
+                  setUnlockedLevels([...unlockedLevles, currentLevel])
+                } else {
+                  restart()
+                }
+              }}>{btn_text}</button>
+          </div>
+        </div>
       </div>
-      <div className='text-end mb-3'>
-      </div>
-      <div className='main-container'>
-        <div className=" d-flex justify-content-center flex-wrap gap-3 rounded py-3">
 
-          {/* <span>{levelsData[currentLevel]}</span> */}
+      <div className='main-container d-flex justify-content-center flex-wrap gap-3  py-3 mt-3'>
           {kingArr.map((item, index) => (
             <Card
               key={index}
@@ -106,7 +108,6 @@ function App() {
               setScore={setScore}
             />
           ))}
-        </div>
       </div>
 
     </div>
