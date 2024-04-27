@@ -1,8 +1,10 @@
-function Levels({currentLevel, setCurrentLevel,unlockedLevles}) {
+function Levels({ currentLevel, setCurrentLevel, unlockedLevles }) {
     function levelManager(level) {
         setCurrentLevel(level)
-        unlockedLevles.push(level)
+        console.log(unlockedLevles)
+
     }
+
 
     return (
         <div className="text-center bg-cont rounded pb-3">
